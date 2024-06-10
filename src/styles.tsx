@@ -1,5 +1,5 @@
 
-import { StatusBar, StyleSheet } from "react-native";
+import { StatusBar, StyleSheet, Dimensions } from "react-native";
 
 
 export const styles = StyleSheet.create({
@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        
+
 
     },
     Item:{
@@ -23,10 +23,10 @@ export const styles = StyleSheet.create({
     },
     wrapper:{
         flex:1,
-        backgroundColor:"pink",
-        marginTop: StatusBar.currentHeight || 0,
-        //justifyContent:"center",
-        //alignItems: "stretch",
+
+        //marginTop: StatusBar.currentHeight || 0,
+        //borderWidth:10
+ 
     },
     temp:{
         color: "black",
@@ -41,13 +41,16 @@ export const styles = StyleSheet.create({
         fontSize: 22,
     },
     highLowWrapper:{
+
         flexDirection: "row",
-        justifyContent: "center",
+        justifyContent: "space-around",
         alignItems: "center",
+        borderWidth:10,
+
     },
     bodyWrapper:{
         justifyContent: "flex-end",
-        alignItems:"flex-start",
+        alignItems:"center",
         padding:25,
     },
     description:{
@@ -66,5 +69,28 @@ export const styles = StyleSheet.create({
     text:{
         //width: "100%",
         textAlign:"center",
-    }
+    },
+    imagelayout:{
+        flex:1,
+ 
+        resizeMode:"cover",
+        width: "100%",
+        height: "100%"
+    },
+    topicWrapper:{
+        alignItems:"center",
+        padding:20,
+        borderWidth:5,
+        borderColor: "red",
+
+    },
+    topicText:{
+        color: "white",
+        fontSize: 40
+
+    },
+    populationWrapper:{
+        alignItems:"center",
+        flexDirection: "column"
+    },
 });

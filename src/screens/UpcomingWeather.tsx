@@ -1,13 +1,8 @@
 import React from "react";
 import { SafeAreaView, Text, FlatList, View } from "react-native";
-import { Feather } from "@expo/vector-icons";
+
 import {styles} from "../styles";
-interface DataItem {
-    a: number | null;
-    b: number | null;
-    c: number | null;
-    id: string;
-}
+import { DataItem, ListItem} from "../components/ListItem";
 
 const DATA: DataItem[] = [
     { a: 1, b: 2, c: 3, id:"a"},
@@ -26,17 +21,7 @@ const DATA: DataItem[] = [
 
 
 
-const Item: React.FC<DataItem> = ({ a, b, c, id}) => {
-    return (
-        <View style ={styles.Item}>
-            <Feather name="sun" size={50} color="white" />
-            <Text>{a}</Text>
-            <Text>{b}</Text>
-            <Text>{c}</Text>
-            <Text>{id}</Text>
-        </View>
-    );
-};
+
 const Empty = () => (
     <View>
         <Text>Currently Empty!!!!!</Text>
@@ -47,7 +32,7 @@ const UpcomingWeather: React.FC = () => {
     const renderItem = ({item}:{item: DataItem})=> (
     //const renderItem = ({item}: ListRenderItemInfo<DataItem>)=> (
    
-        <Item
+        <ListItem
             a={item.a}
             b={item.b}
             c={item.c}

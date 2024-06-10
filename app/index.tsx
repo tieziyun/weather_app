@@ -1,25 +1,13 @@
 import React from "react";
-import {View, StyleSheet} from "react-native";
-import CurrentWeather from "../src/screens/CurrentWeather";
-import UpcomingWeather from "../src/screens/UpcomingWeather";
-const App = () => {
-    return(
-        <View style = {TopStyles.container}>
-            {/* <CurrentWeather /> */}
-            <UpcomingWeather />
-        </View>
+import { BottomTabs } from "../src/components/BottomTabs";
 
-        
+
+
+const App: React.FC = () => {
+    return (
+
+        <BottomTabs />
     );
 };
-
-
-const TopStyles = StyleSheet.create({
-    container:{
-        flex: 1
-    }
-});
-
-
 
 export default App;

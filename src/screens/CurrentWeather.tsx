@@ -3,32 +3,40 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { styles } from "../styles";
 import { Feather } from "@expo/vector-icons"; 
+import { RowText } from "../components/RowText";
+import { WeatherType } from "../utilities/WeatherType"; 
+type WeatherProps = {
+    type: keyof typeof WeatherType;
+};
 
 
-export default function CurrentWeather() { 
+ const CurrentWeather: React.FC<WeatherProps> = ({ type }) => { 
 const myString = "Hello, TypeScript!";
+
+const weather = WeatherType[type];
+
 return (
     <SafeAreaView style = {styles.wrapper}>
-        <View style = {styles.container}>
+        <View style = {[styles.container, { backgroundColor: weather.BackgroundColor }]}>
             <Feather name ="sun" size = {100} color = "black" />
             <Text>{myString}</Text>
             <Text>current weather</Text>
             <Text style = {styles.temp}>6</Text>
             <Text style = {styles.feels}>Feels like 5</Text>
-            <View style = {styles.highLowWrapper}>
-                <Text style = {styles.highLow}>High: 8 </Text>
-                <Text style = {styles.highLow}>low: 6 </Text>
-            </View>
+            <RowText HighTemp={88}
+                     LowTemp={77}                    
+            />
         </View>
 
             
             <View style = {styles.bodyWrapper}>
                 <Text style = {styles.description}>It&#39;s sunny</Text>
-                <Text style = {styles.message}>It&#39;s perfect t-shirt time</Text>
+                <Text style = {styles.message}>{WeatherType["Clear"].message}</Text>
             </View>
 
 
    
     </SafeAreaView>
   );
-}
+};
+export default CurrentWeather;
